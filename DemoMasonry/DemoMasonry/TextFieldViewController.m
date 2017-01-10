@@ -8,6 +8,10 @@
 
 #import "TextFieldViewController.h"
 
+@interface TextFieldViewController () <UITextFieldDelegate>
+
+@end
+
 @implementation TextFieldViewController
 
 - (void)viewDidLoad {
@@ -28,29 +32,26 @@
 
 - (void)setUI
 {
-
-    
+    UITextField *textfield = [[UITextField alloc] init];
+    [self.view addSubview:textfield];
+    [textfield mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(40);
+    }];
+    textfield.layer.borderColor = RandomColor.CGColor;
+    textfield.layer.borderWidth = 1.0;
+    textfield.textColor = [UIColor blackColor];
+    textfield.delegate = self;
+    textfield.returnKeyType = UIReturnKeyDone;
+    textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
 }
 
-
-- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // 获取键盘基本信息（动画时长与键盘高度）
-    NSDictionary *userInfo = [notification userInfo];
-    CGRect rect =
-    [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    [textField resignFirstResponder];
     
-    CGFloat keyboardHeight = CGRectGetHeight(rect);
-    CGFloat keyboardDuration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
-    // 修改下边距约束
-//    [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(-keyboardHeight); }];
-    
-    // 更新约束
-    
-    [UIView animateWithDuration:keyboardDuration animations:^{
-        [self.view layoutIfNeeded]; }];
+    return YES;
 }
 
 @end

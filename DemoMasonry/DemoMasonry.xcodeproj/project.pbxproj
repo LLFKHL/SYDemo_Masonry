@@ -19,21 +19,17 @@
 		A742A9641C994AC900F6C61B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A742A9621C994AC900F6C61B /* LaunchScreen.storyboard */; };
 		A742A96F1C994AC900F6C61B /* DemoMasonryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A742A96E1C994AC900F6C61B /* DemoMasonryTests.m */; };
 		A742A97A1C994AC900F6C61B /* DemoMasonryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A742A9791C994AC900F6C61B /* DemoMasonryUITests.m */; };
+		A74CB6871E24BBAB00B86CAB /* futou.png in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6841E24BBAB00B86CAB /* futou.png */; };
+		A74CB6881E24BBAB00B86CAB /* miao.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6851E24BBAB00B86CAB /* miao.jpeg */; };
+		A74CB6891E24BBAB00B86CAB /* tianshi.png in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6861E24BBAB00B86CAB /* tianshi.png */; };
 		A75583341CA76BD500DA3427 /* PublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75583331CA76BD500DA3427 /* PublicViewController.m */; };
 		A75583371CA7A33100DA3427 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A75583361CA7A33100DA3427 /* TableViewCell.m */; };
 		A76B8DD31CA6C3F6005E8780 /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DD21CA6C3F6005E8780 /* LabelViewController.m */; };
 		A76B8DD61CA6C40A005E8780 /* ViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DD51CA6C40A005E8780 /* ViewViewController.m */; };
 		A76B8DD91CA6C414005E8780 /* ImageViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DD81CA6C414005E8780 /* ImageViewViewController.m */; };
-		A76B8DDC1CA6C41F005E8780 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DDB1CA6C41F005E8780 /* ProgressViewController.m */; };
+		A76B8DDC1CA6C41F005E8780 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DDB1CA6C41F005E8780 /* OtherViewController.m */; };
 		A76B8DDF1CA6C429005E8780 /* TextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DDE1CA6C429005E8780 /* TextViewViewController.m */; };
 		A76B8DE21CA6C433005E8780 /* TextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DE11CA6C433005E8780 /* TextFieldViewController.m */; };
-		A76B8DE51CA6C43E005E8780 /* ActivityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DE41CA6C43E005E8780 /* ActivityViewViewController.m */; };
-		A76B8DE81CA6C44F005E8780 /* PickerViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DE71CA6C44F005E8780 /* PickerViewViewController.m */; };
-		A76B8DEB1CA6C45C005E8780 /* AlertViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DEA1CA6C45C005E8780 /* AlertViewViewController.m */; };
-		A76B8DEE1CA6C467005E8780 /* SliderViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DED1CA6C467005E8780 /* SliderViewViewController.m */; };
-		A76B8DF11CA6C473005E8780 /* SearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DF01CA6C473005E8780 /* SearchBarViewController.m */; };
-		A76B8DF41CA6C480005E8780 /* SwitchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DF31CA6C480005E8780 /* SwitchViewViewController.m */; };
-		A76B8DF71CA6C48F005E8780 /* SegmentViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DF61CA6C48F005E8780 /* SegmentViewViewController.m */; };
 		A76B8DFA1CA6C4A0005E8780 /* ScrollViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DF91CA6C4A0005E8780 /* ScrollViewViewController.m */; };
 		A76B8DFD1CA6C4AB005E8780 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DFC1CA6C4AB005E8780 /* CollectionViewViewController.m */; };
 		A76B8E001CA6C4B7005E8780 /* TableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DFF1CA6C4B7005E8780 /* TableViewViewController.m */; };
@@ -95,6 +91,9 @@
 		A742A9751C994AC900F6C61B /* DemoMasonryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoMasonryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A742A9791C994AC900F6C61B /* DemoMasonryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMasonryUITests.m; sourceTree = "<group>"; };
 		A742A97B1C994AC900F6C61B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A74CB6841E24BBAB00B86CAB /* futou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = futou.png; sourceTree = "<group>"; };
+		A74CB6851E24BBAB00B86CAB /* miao.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miao.jpeg; sourceTree = "<group>"; };
+		A74CB6861E24BBAB00B86CAB /* tianshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tianshi.png; sourceTree = "<group>"; };
 		A75583321CA76BD500DA3427 /* PublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicViewController.h; sourceTree = "<group>"; };
 		A75583331CA76BD500DA3427 /* PublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicViewController.m; sourceTree = "<group>"; };
 		A75583351CA7A33100DA3427 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
@@ -106,26 +105,12 @@
 		A76B8DD51CA6C40A005E8780 /* ViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewViewController.m; sourceTree = "<group>"; };
 		A76B8DD71CA6C414005E8780 /* ImageViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewViewController.h; sourceTree = "<group>"; };
 		A76B8DD81CA6C414005E8780 /* ImageViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewViewController.m; sourceTree = "<group>"; };
-		A76B8DDA1CA6C41F005E8780 /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
-		A76B8DDB1CA6C41F005E8780 /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		A76B8DDA1CA6C41F005E8780 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		A76B8DDB1CA6C41F005E8780 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		A76B8DDD1CA6C429005E8780 /* TextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewViewController.h; sourceTree = "<group>"; };
 		A76B8DDE1CA6C429005E8780 /* TextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewViewController.m; sourceTree = "<group>"; };
 		A76B8DE01CA6C433005E8780 /* TextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldViewController.h; sourceTree = "<group>"; };
 		A76B8DE11CA6C433005E8780 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
-		A76B8DE31CA6C43E005E8780 /* ActivityViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewViewController.h; sourceTree = "<group>"; };
-		A76B8DE41CA6C43E005E8780 /* ActivityViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewViewController.m; sourceTree = "<group>"; };
-		A76B8DE61CA6C44F005E8780 /* PickerViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewViewController.h; sourceTree = "<group>"; };
-		A76B8DE71CA6C44F005E8780 /* PickerViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewViewController.m; sourceTree = "<group>"; };
-		A76B8DE91CA6C45C005E8780 /* AlertViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewViewController.h; sourceTree = "<group>"; };
-		A76B8DEA1CA6C45C005E8780 /* AlertViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewViewController.m; sourceTree = "<group>"; };
-		A76B8DEC1CA6C467005E8780 /* SliderViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderViewViewController.h; sourceTree = "<group>"; };
-		A76B8DED1CA6C467005E8780 /* SliderViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderViewViewController.m; sourceTree = "<group>"; };
-		A76B8DEF1CA6C473005E8780 /* SearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarViewController.h; sourceTree = "<group>"; };
-		A76B8DF01CA6C473005E8780 /* SearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarViewController.m; sourceTree = "<group>"; };
-		A76B8DF21CA6C480005E8780 /* SwitchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewViewController.h; sourceTree = "<group>"; };
-		A76B8DF31CA6C480005E8780 /* SwitchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewViewController.m; sourceTree = "<group>"; };
-		A76B8DF51CA6C48F005E8780 /* SegmentViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentViewViewController.h; sourceTree = "<group>"; };
-		A76B8DF61CA6C48F005E8780 /* SegmentViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentViewViewController.m; sourceTree = "<group>"; };
 		A76B8DF81CA6C4A0005E8780 /* ScrollViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewViewController.h; sourceTree = "<group>"; };
 		A76B8DF91CA6C4A0005E8780 /* ScrollViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewViewController.m; sourceTree = "<group>"; };
 		A76B8DFB1CA6C4AB005E8780 /* CollectionViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewViewController.h; sourceTree = "<group>"; };
@@ -234,6 +219,9 @@
 				A742A9581C994AC800F6C61B /* AppDelegate.m */,
 				A742A95A1C994AC800F6C61B /* ViewController.h */,
 				A742A95B1C994AC800F6C61B /* ViewController.m */,
+				A74CB6841E24BBAB00B86CAB /* futou.png */,
+				A74CB6851E24BBAB00B86CAB /* miao.jpeg */,
+				A74CB6861E24BBAB00B86CAB /* tianshi.png */,
 				A71C1A3A1CB7B1E60059171D /* scrollVC */,
 				A76B8E011CA6C6EE005E8780 /* BaseViewController.h */,
 				A76B8E021CA6C6EE005E8780 /* BaseViewController.m */,
@@ -243,26 +231,12 @@
 				A76B8DD51CA6C40A005E8780 /* ViewViewController.m */,
 				A76B8DD71CA6C414005E8780 /* ImageViewViewController.h */,
 				A76B8DD81CA6C414005E8780 /* ImageViewViewController.m */,
-				A76B8DDA1CA6C41F005E8780 /* ProgressViewController.h */,
-				A76B8DDB1CA6C41F005E8780 /* ProgressViewController.m */,
+				A76B8DDA1CA6C41F005E8780 /* OtherViewController.h */,
+				A76B8DDB1CA6C41F005E8780 /* OtherViewController.m */,
 				A76B8DDD1CA6C429005E8780 /* TextViewViewController.h */,
 				A76B8DDE1CA6C429005E8780 /* TextViewViewController.m */,
 				A76B8DE01CA6C433005E8780 /* TextFieldViewController.h */,
 				A76B8DE11CA6C433005E8780 /* TextFieldViewController.m */,
-				A76B8DE31CA6C43E005E8780 /* ActivityViewViewController.h */,
-				A76B8DE41CA6C43E005E8780 /* ActivityViewViewController.m */,
-				A76B8DE61CA6C44F005E8780 /* PickerViewViewController.h */,
-				A76B8DE71CA6C44F005E8780 /* PickerViewViewController.m */,
-				A76B8DE91CA6C45C005E8780 /* AlertViewViewController.h */,
-				A76B8DEA1CA6C45C005E8780 /* AlertViewViewController.m */,
-				A76B8DEC1CA6C467005E8780 /* SliderViewViewController.h */,
-				A76B8DED1CA6C467005E8780 /* SliderViewViewController.m */,
-				A76B8DEF1CA6C473005E8780 /* SearchBarViewController.h */,
-				A76B8DF01CA6C473005E8780 /* SearchBarViewController.m */,
-				A76B8DF21CA6C480005E8780 /* SwitchViewViewController.h */,
-				A76B8DF31CA6C480005E8780 /* SwitchViewViewController.m */,
-				A76B8DF51CA6C48F005E8780 /* SegmentViewViewController.h */,
-				A76B8DF61CA6C48F005E8780 /* SegmentViewViewController.m */,
 				A76B8DF81CA6C4A0005E8780 /* ScrollViewViewController.h */,
 				A76B8DF91CA6C4A0005E8780 /* ScrollViewViewController.m */,
 				A7BA06011CAADF7500260E2B /* View.h */,
@@ -454,8 +428,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74CB6871E24BBAB00B86CAB /* futou.png in Resources */,
 				A77820F31C99500A00120B99 /* Info.plist in Resources */,
 				A742A9641C994AC900F6C61B /* LaunchScreen.storyboard in Resources */,
+				A74CB6881E24BBAB00B86CAB /* miao.jpeg in Resources */,
+				A74CB6891E24BBAB00B86CAB /* tianshi.png in Resources */,
 				A742A9611C994AC900F6C61B /* Assets.xcassets in Resources */,
 				A742A95F1C994AC900F6C61B /* Main.storyboard in Resources */,
 			);
@@ -488,9 +465,7 @@
 				A77820F91C99500A00120B99 /* MASViewConstraint.m in Sources */,
 				A77820F41C99500A00120B99 /* MASCompositeConstraint.m in Sources */,
 				A77820FA1C99500A00120B99 /* NSArray+MASAdditions.m in Sources */,
-				A76B8DF71CA6C48F005E8780 /* SegmentViewViewController.m in Sources */,
 				A742A95C1C994AC800F6C61B /* ViewController.m in Sources */,
-				A76B8DE51CA6C43E005E8780 /* ActivityViewViewController.m in Sources */,
 				A76B8DFA1CA6C4A0005E8780 /* ScrollViewViewController.m in Sources */,
 				A76B8DD31CA6C3F6005E8780 /* LabelViewController.m in Sources */,
 				A75583341CA76BD500DA3427 /* PublicViewController.m in Sources */,
@@ -507,18 +482,13 @@
 				A77820FD1C99500A00120B99 /* ViewController+MASAdditions.m in Sources */,
 				A7BA06031CAADF7500260E2B /* View.m in Sources */,
 				A77820FC1C99500A00120B99 /* View+MASAdditions.m in Sources */,
-				A76B8DEB1CA6C45C005E8780 /* AlertViewViewController.m in Sources */,
 				A71C1A461CB7B1E60059171D /* GoodsDetailsVC.m in Sources */,
 				A76B8DFD1CA6C4AB005E8780 /* CollectionViewViewController.m in Sources */,
 				A71C1A441CB7B1E60059171D /* GoodsDetailsDetailsView.m in Sources */,
-				A76B8DE81CA6C44F005E8780 /* PickerViewViewController.m in Sources */,
-				A76B8DDC1CA6C41F005E8780 /* ProgressViewController.m in Sources */,
+				A76B8DDC1CA6C41F005E8780 /* OtherViewController.m in Sources */,
 				A77820F81C99500A00120B99 /* MASViewAttribute.m in Sources */,
 				A77820F51C99500A00120B99 /* MASConstraint.m in Sources */,
-				A76B8DEE1CA6C467005E8780 /* SliderViewViewController.m in Sources */,
-				A76B8DF41CA6C480005E8780 /* SwitchViewViewController.m in Sources */,
 				A71C1A451CB7B1E60059171D /* GoodsDetailsGoodsView.m in Sources */,
-				A76B8DF11CA6C473005E8780 /* SearchBarViewController.m in Sources */,
 				A77820F61C99500A00120B99 /* MASConstraintMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

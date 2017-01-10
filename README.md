@@ -1,6 +1,11 @@
 # SYDemo_Masonry
 使用masonry进行适配
 
+#常用方法
+ * 1 添加约束 mas_makeConstraints
+ * 2 更新约束、也可以添加新约束 mas_updateConstraints
+ * 3 重置之前的约束 mas_remakeConstraints
+
 #使用注意事项
  * 1、使用autolayout之前，一定要将视图添加到父视图上，否则会报错。
  * 2、使用autolayout时，不能同事对同一个视图使用mas_makeConstraints，否则会报错。
@@ -10,8 +15,13 @@
  * 6、equalTo与mas_equalTo的区别：equalTo比较的是view，而mas_equalTo比较的是值。
  * 7、边界中顶部、左侧边界的数值为正整数；而底部、右侧边界的数值为负整数（原因在于计算的是绝对的数值，即计算的底部，或右侧边界的数值时，相对的视图底部高度，或右侧宽度，所以要负数）。
  * 8、多个视图的父视图相同时，须先实例化多个视图，且多个视图都添加到视图后才进行约束设置。
+ * 9、更新约束后，需要刷新UI布局时，必须调用下面的方法
+~~~ javascript
+- (void)setNeedsLayout;
+- (void)layoutIfNeeded;
+~~~
 
-#使用
+#使用设置
  * 1、居中设置
   * 垂直居中：make.centerY.mas_equalTo(self.window.mas_centerY)
   * 水平居中：make.centerX.mas_equalTo(self.window.mas_centerX)
@@ -170,6 +180,8 @@ dispatch_once(&onceToken, ^{
 ~~~ 
 
  * 6、如何动态修改约束
+
+ * 7、如何获取约束里设置的值，或是获取约束对象的frame
 
 
 

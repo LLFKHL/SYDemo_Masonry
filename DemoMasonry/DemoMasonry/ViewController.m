@@ -10,16 +10,9 @@
 #import "LabelViewController.h"
 #import "ViewViewController.h"
 #import "ImageViewViewController.h"
-#import "ProgressViewController.h"
 #import "TextViewViewController.h"
 #import "TextFieldViewController.h"
-#import "ActivityViewViewController.h"
-#import "PickerViewViewController.h"
-#import "AlertViewViewController.h"
-#import "SliderViewViewController.h"
-#import "SearchBarViewController.h"
-#import "SwitchViewViewController.h"
-#import "SegmentViewViewController.h"
+#import "OtherViewController.h"
 #import "ScrollViewViewController.h"
 #import "CollectionViewViewController.h"
 #import "TableViewViewController.h"
@@ -161,7 +154,7 @@
 {
     if (!_array)
     {
-        _array = [NSArray arrayWithObjects:@"label视图", @"view视图", @"imageview视图", @"progress视图", @"textview视图", @"textfield视图", @"activityview视图", @"pickerview视图", @"alertview视图", @"sliderview视图", @"searchbar视图", @"switchview视图", @"segmentview视图", @"scrollview视图", @"collectionview视图", @"tableview视图", @"public视图", nil];
+        _array = [NSArray arrayWithObjects:@"label视图", @"view视图", @"imageview视图", @"textview视图", @"textfield视图", @"其他视图", @"scrollview视图", @"collectionview视图", @"tableview视图", @"public视图", nil];
     }
     
     return _array;
@@ -171,32 +164,13 @@
 {
     if (!_VCArray)
     {
-        _VCArray = [NSArray arrayWithObjects:[LabelViewController class], [ViewViewController class], [ImageViewViewController class], [ProgressViewController class], [TextViewViewController class], [TextFieldViewController class], [ActivityViewViewController class], [PickerViewViewController class], [AlertViewViewController class], [SliderViewViewController class], [SearchBarViewController class], [SwitchViewViewController class], [SegmentViewViewController class], [ScrollViewViewController class], [CollectionViewViewController class], [TableViewViewController class], [PublicViewController class], nil];
+        _VCArray = [NSArray arrayWithObjects:[LabelViewController class], [ViewViewController class], [ImageViewViewController class], [TextViewViewController class], [TextFieldViewController class], [OtherViewController class], [ScrollViewViewController class], [CollectionViewViewController class], [TableViewViewController class], [PublicViewController class], nil];
     }
     
     return _VCArray;
 }
 
 @end
-
-
-/*
- 
- http://www.open-open.com/lib/view/open1442931753873.html
- 
- http://www.starming.com/index.php?v=index&view=81
- 
- http://www.open-open.com/lib/view/open1442931753873.html
- 
- http://www.cnblogs.com/-ljj/p/4470658.html
- 
- http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/
- 
- http://www.jianshu.com/p/1841e6c69611
- http://www.jianshu.com/p/24e4ff56bfea
- http://adad184.com/2015/06/08/complex-cell-with-masonry/
- 
- */
 
 
 

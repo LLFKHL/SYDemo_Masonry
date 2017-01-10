@@ -1,5 +1,5 @@
 //
-//  SliderViewViewController.h
+//  ProgressViewController.h
 //  DemoMasonry
 //
 //  Created by zhangshaoyu on 16/3/26.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SliderViewViewController : BaseViewController
+@interface OtherViewController : BaseViewController
 
 @end
