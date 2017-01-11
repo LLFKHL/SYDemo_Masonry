@@ -33,9 +33,9 @@
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
-        make.height.mas_equalTo(40);
+        make.height.mas_equalTo(30.0);
     }];
-    label.text = @"progress;activityview;pickerview;alertview;sliderview;searchbar;switchview;segmentview";
+    label.text = @"progress";
     label.textColor = RandomColor;
     
     
@@ -54,6 +54,31 @@
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(10);
     }];
+    
+    currentView = progressview;
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    [self.view addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(currentView.bottom).offset(10);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(30.0);
+    }];
+    label2.text = @"activityview";
+    label2.textColor = RandomColor;
+    
+    currentView = label2;
+    
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] init];
+    [self.view addSubview:activityView];
+    activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    activityView.hidesWhenStopped = YES;
+    activityView.color = RandomColor;
+    [activityView stopAnimating];
+    activityView.tag = 1000;
 }
+
+//@"progress;activityview;pickerview;alertview;sliderview;searchbar;switchview;segmentview"
 
 @end
