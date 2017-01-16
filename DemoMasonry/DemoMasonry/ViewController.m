@@ -12,11 +12,12 @@
 #import "ImageViewViewController.h"
 #import "TextViewViewController.h"
 #import "TextFieldViewController.h"
+#import "AnimationViewController.h"
 #import "OtherViewController.h"
 #import "ScrollViewViewController.h"
 #import "CollectionViewViewController.h"
 #import "TableViewViewController.h"
-#import "PublicViewController.h"
+#import "LoginViewController.h"
 
 #import "GoodsDetailsVC.h"
 
@@ -154,7 +155,7 @@
 {
     if (!_array)
     {
-        _array = [NSArray arrayWithObjects:@"label视图", @"view视图", @"imageview视图", @"textview视图", @"textfield视图", @"其他视图", @"scrollview视图", @"collectionview视图", @"tableview视图", @"public视图", nil];
+        _array = [NSArray arrayWithObjects:@"label视图", @"view视图", @"imageview视图", @"textview视图", @"textfield视图", @"其他视图", @"animation动画视图", @"scrollview视图", @"collectionview视图", @"tableview视图", @"登录视图", nil];
     }
     
     return _array;
@@ -164,7 +165,7 @@
 {
     if (!_VCArray)
     {
-        _VCArray = [NSArray arrayWithObjects:[LabelViewController class], [ViewViewController class], [ImageViewViewController class], [TextViewViewController class], [TextFieldViewController class], [OtherViewController class], [ScrollViewViewController class], [CollectionViewViewController class], [TableViewViewController class], [PublicViewController class], nil];
+        _VCArray = [NSArray arrayWithObjects:[LabelViewController class], [ViewViewController class], [ImageViewViewController class], [TextViewViewController class], [TextFieldViewController class], [OtherViewController class], [AnimationViewController class], [ScrollViewViewController class], [CollectionViewViewController class], [TableViewViewController class], [LoginViewController class], nil];
     }
     
     return _VCArray;

@@ -15,10 +15,63 @@
  * 6、equalTo与mas_equalTo的区别：equalTo比较的是view，而mas_equalTo比较的是值。
  * 7、边界中顶部、左侧边界的数值为正整数；而底部、右侧边界的数值为负整数（原因在于计算的是绝对的数值，即计算的底部，或右侧边界的数值时，相对的视图底部高度，或右侧宽度，所以要负数）。
  * 8、多个视图的父视图相同时，须先实例化多个视图，且多个视图都添加到视图后才进行约束设置。
- * 9、更新约束后，需要刷新UI布局时，必须调用下面的方法
+ * 9、更新约束后，需要刷新UI布局时，需要调用下面的方法
 ~~~ javascript
 - (void)setNeedsLayout;
 - (void)layoutIfNeeded;
+- (void)setNeedsUpdateConstraints;
+~~~
+  * 情况1：实例化UI后，先通过mas_makeConstraints添加约束，然后再通过mas_updateConstraints修改更新某一个约束，然后再调用layoutIfNeeded
+~~~ javascript
+// 1 添加约束
+[view mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.center.equalTo(self.view);
+    make.size.mas_equalTo(CGSizeMake(80.0, 80.0));
+}];
+
+// 2 修改更新约束
+[view mas_updateConstraints:^(MASConstraintMaker *make) {
+    make.top.mas_equalTo(originTop);
+    make.left.mas_equalTo(originLeft);
+}];
+
+// 3 调用更新
+[self.view layoutIfNeeded];
+~~~
+  * 情况2：实例化UI后，先通过mas_makeConstraints添加约束，然后再通过mas_remakeConstraints重置所有约束，然后再调用layoutIfNeeded
+~~~ javascript
+// 1 添加约束
+[view mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.center.equalTo(self.view);
+    make.size.mas_equalTo(CGSizeMake(80.0, 80.0));
+}];
+
+// 2 重置所有约束
+[view mas_remakeConstraints:^(MASConstraintMaker *make) {
+    make.top.mas_equalTo(originTop);
+    make.left.mas_equalTo(originLeft);
+    make.size.mas_equalTo(CGSizeMake(80.0, 80.0));
+}];
+
+// 3 调用更新
+[self.view layoutIfNeeded];
+~~~
+  * 情况3：实例化UI后，暂不添加约束，后通过updateViewConstraints方法里添加约束mas_updateConstraints，然后再调用setNeedsUpdateConstraints、layoutIfNeeded
+~~~ javascript
+// 1 
+- (void)updateViewConstraints
+{
+    [view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.size.mas_equalTo(self.sizeScale);
+    }];
+
+    [super updateViewConstraints];
+}
+
+// 2 调用更新
+[self.view setNeedsUpdateConstraints];
+[self.view layoutIfNeeded];
 ~~~
 
 #使用设置
@@ -180,6 +233,8 @@ dispatch_once(&onceToken, ^{
 ~~~ 
 
  * 6、如何动态修改约束
+  * 使用mas_updateConstraints修改更新某一个约束
+  * 使用mas_remakeConstraints，清除之前的所有约束，重新添加约束
 
  * 7、如何获取约束里设置的值，或是获取约束对象的frame
 

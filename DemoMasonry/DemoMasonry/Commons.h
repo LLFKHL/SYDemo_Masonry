@@ -30,27 +30,14 @@ Masonry使用技巧:
 
 /*
 
- http://www.jianshu.com/p/f0b17ecfd04e
- http://www.cocoachina.com/ios/20150527/11936.html
- http://www.jianshu.com/p/598225bb7ddc
- http://adad184.com/2014/09/28/use-masonry-to-quick-solve-autolayout/
- http://www.infoq.com/cn/news/2016/03/ios-weekly-apple-mcqueen?utm_campaign=rightbar_v2&utm_source=infoq&utm_medium=news_link&utm_content=link_text
- https://github.com/Tricertops/Objective-Chain
  https://segmentfault.com/q/1010000002773838
- 
- http://www.open-open.com/lib/view/open1442931753873.html
- 
- http://www.starming.com/index.php?v=index&view=81
- 
- http://www.open-open.com/lib/view/open1442931753873.html
- 
- http://www.cnblogs.com/-ljj/p/4470658.html
+
  
  http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/
  
- http://www.jianshu.com/p/1841e6c69611
+
  http://www.jianshu.com/p/24e4ff56bfea
- http://adad184.com/2015/06/08/complex-cell-with-masonry/
+
  
 */
 

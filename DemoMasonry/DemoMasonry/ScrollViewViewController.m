@@ -7,7 +7,6 @@
 //
 
 #import "ScrollViewViewController.h"
-#import "View.h"
 
 @implementation ScrollViewViewController
 

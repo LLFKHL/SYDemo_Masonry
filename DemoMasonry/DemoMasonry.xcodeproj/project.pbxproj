@@ -22,7 +22,7 @@
 		A74CB6871E24BBAB00B86CAB /* futou.png in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6841E24BBAB00B86CAB /* futou.png */; };
 		A74CB6881E24BBAB00B86CAB /* miao.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6851E24BBAB00B86CAB /* miao.jpeg */; };
 		A74CB6891E24BBAB00B86CAB /* tianshi.png in Resources */ = {isa = PBXBuildFile; fileRef = A74CB6861E24BBAB00B86CAB /* tianshi.png */; };
-		A75583341CA76BD500DA3427 /* PublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75583331CA76BD500DA3427 /* PublicViewController.m */; };
+		A75583341CA76BD500DA3427 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75583331CA76BD500DA3427 /* LoginViewController.m */; };
 		A75583371CA7A33100DA3427 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A75583361CA7A33100DA3427 /* TableViewCell.m */; };
 		A76B8DD31CA6C3F6005E8780 /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DD21CA6C3F6005E8780 /* LabelViewController.m */; };
 		A76B8DD61CA6C40A005E8780 /* ViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DD51CA6C40A005E8780 /* ViewViewController.m */; };
@@ -46,7 +46,7 @@
 		A77820FC1C99500A00120B99 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A77820EF1C99500A00120B99 /* View+MASAdditions.m */; };
 		A77820FD1C99500A00120B99 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A77820F21C99500A00120B99 /* ViewController+MASAdditions.m */; };
 		A7BA06001CAAC85E00260E2B /* TableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BA05FF1CAAC85E00260E2B /* TableViewModel.m */; };
-		A7BA06031CAADF7500260E2B /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BA06021CAADF7500260E2B /* View.m */; };
+		A7D118F11E2CA1B70094E89C /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D118F01E2CA1B70094E89C /* AnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,8 @@
 		A74CB6841E24BBAB00B86CAB /* futou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = futou.png; sourceTree = "<group>"; };
 		A74CB6851E24BBAB00B86CAB /* miao.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miao.jpeg; sourceTree = "<group>"; };
 		A74CB6861E24BBAB00B86CAB /* tianshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tianshi.png; sourceTree = "<group>"; };
-		A75583321CA76BD500DA3427 /* PublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicViewController.h; sourceTree = "<group>"; };
-		A75583331CA76BD500DA3427 /* PublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicViewController.m; sourceTree = "<group>"; };
+		A75583321CA76BD500DA3427 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A75583331CA76BD500DA3427 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A75583351CA7A33100DA3427 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		A75583361CA7A33100DA3427 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		A76B8DD01CA6B7AF005E8780 /* Commons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commons.h; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 		A77820FE1C9950CD00120B99 /* MasonryPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryPrefixHeader.pch; sourceTree = "<group>"; };
 		A7BA05FE1CAAC85E00260E2B /* TableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewModel.h; sourceTree = "<group>"; };
 		A7BA05FF1CAAC85E00260E2B /* TableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewModel.m; sourceTree = "<group>"; };
-		A7BA06011CAADF7500260E2B /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
-		A7BA06021CAADF7500260E2B /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
+		A7D118EF1E2CA1B70094E89C /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		A7D118F01E2CA1B70094E89C /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,26 +231,20 @@
 				A76B8DD51CA6C40A005E8780 /* ViewViewController.m */,
 				A76B8DD71CA6C414005E8780 /* ImageViewViewController.h */,
 				A76B8DD81CA6C414005E8780 /* ImageViewViewController.m */,
-				A76B8DDA1CA6C41F005E8780 /* OtherViewController.h */,
-				A76B8DDB1CA6C41F005E8780 /* OtherViewController.m */,
 				A76B8DDD1CA6C429005E8780 /* TextViewViewController.h */,
 				A76B8DDE1CA6C429005E8780 /* TextViewViewController.m */,
 				A76B8DE01CA6C433005E8780 /* TextFieldViewController.h */,
 				A76B8DE11CA6C433005E8780 /* TextFieldViewController.m */,
+				A76B8DDA1CA6C41F005E8780 /* OtherViewController.h */,
+				A76B8DDB1CA6C41F005E8780 /* OtherViewController.m */,
+				A7D118EF1E2CA1B70094E89C /* AnimationViewController.h */,
+				A7D118F01E2CA1B70094E89C /* AnimationViewController.m */,
 				A76B8DF81CA6C4A0005E8780 /* ScrollViewViewController.h */,
 				A76B8DF91CA6C4A0005E8780 /* ScrollViewViewController.m */,
-				A7BA06011CAADF7500260E2B /* View.h */,
-				A7BA06021CAADF7500260E2B /* View.m */,
-				A76B8DFB1CA6C4AB005E8780 /* CollectionViewViewController.h */,
-				A76B8DFC1CA6C4AB005E8780 /* CollectionViewViewController.m */,
-				A76B8DFE1CA6C4B7005E8780 /* TableViewViewController.h */,
-				A76B8DFF1CA6C4B7005E8780 /* TableViewViewController.m */,
-				A75583351CA7A33100DA3427 /* TableViewCell.h */,
-				A75583361CA7A33100DA3427 /* TableViewCell.m */,
-				A7BA05FE1CAAC85E00260E2B /* TableViewModel.h */,
-				A7BA05FF1CAAC85E00260E2B /* TableViewModel.m */,
-				A75583321CA76BD500DA3427 /* PublicViewController.h */,
-				A75583331CA76BD500DA3427 /* PublicViewController.m */,
+				A7D118F31E2CC1760094E89C /* collectionVC */,
+				A7D118F21E2CC1620094E89C /* tableVC */,
+				A75583321CA76BD500DA3427 /* LoginViewController.h */,
+				A75583331CA76BD500DA3427 /* LoginViewController.m */,
 				A76B8DD01CA6B7AF005E8780 /* Commons.h */,
 				A77820D81C99500900120B99 /* Masonry */,
 				A742A95D1C994AC900F6C61B /* Main.storyboard */,
@@ -320,6 +314,28 @@
 				A77820F21C99500A00120B99 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		A7D118F21E2CC1620094E89C /* tableVC */ = {
+			isa = PBXGroup;
+			children = (
+				A76B8DFE1CA6C4B7005E8780 /* TableViewViewController.h */,
+				A76B8DFF1CA6C4B7005E8780 /* TableViewViewController.m */,
+				A75583351CA7A33100DA3427 /* TableViewCell.h */,
+				A75583361CA7A33100DA3427 /* TableViewCell.m */,
+				A7BA05FE1CAAC85E00260E2B /* TableViewModel.h */,
+				A7BA05FF1CAAC85E00260E2B /* TableViewModel.m */,
+			);
+			name = tableVC;
+			sourceTree = "<group>";
+		};
+		A7D118F31E2CC1760094E89C /* collectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				A76B8DFB1CA6C4AB005E8780 /* CollectionViewViewController.h */,
+				A76B8DFC1CA6C4AB005E8780 /* CollectionViewViewController.m */,
+			);
+			name = collectionVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,7 +484,7 @@
 				A742A95C1C994AC800F6C61B /* ViewController.m in Sources */,
 				A76B8DFA1CA6C4A0005E8780 /* ScrollViewViewController.m in Sources */,
 				A76B8DD31CA6C3F6005E8780 /* LabelViewController.m in Sources */,
-				A75583341CA76BD500DA3427 /* PublicViewController.m in Sources */,
+				A75583341CA76BD500DA3427 /* LoginViewController.m in Sources */,
 				A76B8E001CA6C4B7005E8780 /* TableViewViewController.m in Sources */,
 				A75583371CA7A33100DA3427 /* TableViewCell.m in Sources */,
 				A742A9591C994AC800F6C61B /* AppDelegate.m in Sources */,
@@ -478,9 +494,9 @@
 				A77820F71C99500A00120B99 /* MASLayoutConstraint.m in Sources */,
 				A742A9561C994AC800F6C61B /* main.m in Sources */,
 				A76B8DDF1CA6C429005E8780 /* TextViewViewController.m in Sources */,
+				A7D118F11E2CA1B70094E89C /* AnimationViewController.m in Sources */,
 				A76B8DD61CA6C40A005E8780 /* ViewViewController.m in Sources */,
 				A77820FD1C99500A00120B99 /* ViewController+MASAdditions.m in Sources */,
-				A7BA06031CAADF7500260E2B /* View.m in Sources */,
 				A77820FC1C99500A00120B99 /* View+MASAdditions.m in Sources */,
 				A71C1A461CB7B1E60059171D /* GoodsDetailsVC.m in Sources */,
 				A76B8DFD1CA6C4AB005E8780 /* CollectionViewViewController.m in Sources */,
