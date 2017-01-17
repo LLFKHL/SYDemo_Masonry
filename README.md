@@ -135,98 +135,232 @@
 ~~~ javascript
 self.detailLabel = [UILabel new]; 
 self.detailLabel.font = [UIFont systemFontOfSize:15]; 
-self.detailLabel.numberOfLines = 0; 
-self.detailLabel.preferredMaxLayoutWidth = WIDTH(self);//要是设置多行Label的话,必须设置此属性 
 self.detailLabel.backgroundColor = [UIColor whiteColor]; 
 [self addSubview:self.detailLabel]; 
+// 多行自适应显示
+// 情况1 多行自适应显示，无需设置高度约束
+self.detailLabel.numberOfLines = 0; 
+self.detailLabel.preferredMaxLayoutWidth = ([UIScreen mainScreen].bounds.size.width - 2 * 10.0); // 要是设置多行Label的话,必须设置此属性 
+[self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) { 
     make.top.mas_equalTo(self.footTitleBackView.mas_bottom).offset(5); 
     make.left.and.right.mas_equalTo(0); 
     make.bottom.mas_equalTo(self.mas_bottom); 
+
+    // 无需设置高度约束
 }]; 
-[self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+// 情况2 多行自适应显示，计算高度，设置高度约束（不足：可能会造成文本显示不全）
+self.detailLabel.numberOfLines = 0; 
+CGFloat height = [self.detailLabel.text boundingRectWithSize:CGSizeMake(([UIScreen mainScreen].bounds.size.width - 2 * 10.0), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.detailLabel.font} context:nil].size.height;
+[self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) { 
+    make.top.mas_equalTo(self.footTitleBackView.mas_bottom).offset(5); 
+    make.left.and.right.mas_equalTo(0); 
+    make.bottom.mas_equalTo(self.mas_bottom); 
+
+    // 设置高度约束
+    make.height.mas_equalTo(height);
+}]; 
 ~~~
 
-主要是UILabel的高度会有变化，所以这里主要是说说label变化时如何处理，设置UILabel的时候注意要设置preferredMaxLayoutWidth这个宽度，还有ContentHuggingPriority为UILayoutPriorityRequried
-
+ * 2、UITextView如何设置自适应多行显示？
+UITextView实始化时，设置的约束只能显示一行，随着输入内容的不断增多，可以在代理方法中实现高度自适应，即重新更新高度约束。
 ~~~ javascript
-CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 10 * 2;
-textLabel.preferredMaxLayoutWidth = maxWidth; 
-[textLabel mas_makeConstraints:^(MASConstraintMaker *make) { 
-    make.top.equalTo(statusView.mas_bottom).with.offset(10); 
-    make.left.equalTo(self.contentView).with.offset(10); 
-    make.right.equalTo(self.contentView).with.offset(-10); 
-    make.bottom.equalTo(self.contentView).with.offset(-10); 
+// 实始化约束
+[textview mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.mas_equalTo(currentView.bottom).offset(10);
+    make.left.equalTo(currentView);
+    make.right.mas_equalTo(-10);
+    make.height.mas_equalTo(40);
 }];
-[textLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 ~~~
+~~~ javascript
+// 代理方法中更新高度约束
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (1001 == textView.tag)
+    {
+        NSString *string = [textView.text stringByReplacingCharactersInRange:range withString:text];
+        NSLog(@"string = %@", string);
 
- * 2、UITextView如何设置多行显示？
+        CGSize size = [string boundingRectWithSize:CGSizeMake((self.view.frame.size.width - 10.0 * 2), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
+        CGFloat height = size.height;
+        NSLog(@"height = %@", @(height));
+
+        // 根据实际高度，更新约束
+        if (height > textView.frame.size.height)
+        {
+            [textView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(height);
+            }];
+        }
+    }
+
+    return YES;
+}
+~~~ 
+
 
  * 3、UISCrollView如何设置contentSize？
-通过过滤视图层设置。如：crollView的过渡子视图为containerView，且其约束为make.edges.equalTo(scr);make.width.equalTo(scr);，然后将其他子视图均添加到过渡视图containerView上，最后设置其高度属性约束make.bottom.equalTo(lastView.mas_bottom);即可。
-
- * 4、UITableView如何设置UITableViewCell的高度？
-如果版本支持最低版本为iOS 8以上的话可以直接利用UITableViewAutomaticDimension在tableview的heightForRowAtIndexPath直接返回即可。
-
+通过过渡视图设置。
+  * （1）containerView为crollView的过渡子视图（垂直设置示例说明）；
+  * （2）containerView相对于crollView的约束为make.top.left.bottom.and.right.equalTo(crollView).with.insets(UIEdgeInsetsZero);
+make.width.equalTo(crollView);
+  * （3）containerView的多个子视图label，且containerView的高度约束最终为最后一个子视图label：make.bottom.equalTo(label.mas_bottom);  
+  * （4）containerView的高度约束，即为crollView的垂直方向的高度约束。
 ~~~ javascript
-tableView.rowHeight = UITableViewAutomaticDimension; 
-tableView.estimatedRowHeight = 80; //减少第一次计算量，iOS7后支持
-~~~ 
+// 垂直方向
+UIScrollView *verticalScrollView = [[UIScrollView alloc] init];
+......
+// 设置scrollView的子视图，即过渡视图contentSize，并设置其约束
+UIView *verticalContainerView = [[UIView alloc] init];
+[verticalScrollView addSubview:verticalContainerView];
+[verticalContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.left.bottom.and.right.equalTo(verticalScrollView).with.insets(UIEdgeInsetsZero);
+    make.width.equalTo(verticalScrollView);
+}];
+// 过渡视图添加子视图
+UIView *lastView = nil;
+for (NSInteger index = 0; index < 10; index++)
+{
+    UILabel *label = [[UILabel alloc] init];
+    ......
 
-~~~ javascript
-(CGFloat)tableView:(UITableView )tableView heightForRowAtIndexPath:(NSIndexPath )indexPath { 
-    // 只用返回这个！ 
-    return UITableViewAutomaticDimension; 
+    // 添加到父视图，并设置过渡视图中子视图的约束
+    [verticalContainerView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(verticalContainerView);
+        make.height.mas_equalTo(verticalScrollView.mas_height);
+
+        if (lastView)
+        {
+            make.top.mas_equalTo(lastView.mas_bottom);
+        }
+        else
+        {
+            make.top.mas_equalTo(0);
+        }
+    }];
+
+    lastView = label;
 }
+
+// 设置过渡视图的底边距（此设置将影响到scrollView的contentSize）
+[verticalContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.bottom.equalTo(lastView.mas_bottom);  
+}];
 ~~~ 
-
-但如果需要兼容iOS 8之前版本的话，就要回到老路子上了，主要是用systemLayoutSizeFittingSize来取高。步骤是先在数据model中添加一个height的属性用来缓存高，然后在table view的heightForRowAtIndexPath代理里static一个只初始化一次的Cell实例，然后根据model内容填充数据，最后根据cell的contentView的systemLayoutSizeFittingSize的方法获取到cell的高。具体代码如下：
-
 ~~~ javascript
-// 在model中添加属性缓存高度 
-@interface DataModel : NSObject 
+// 水平方向
+UIScrollView *horizontalScrollView = [[UIScrollView alloc] init];
+......
+// 设置scrollView的子视图，即过渡视图contentSize，并设置其约束
+UIView *horizontalContainerView = [[UIView alloc] init];
+[horizontalScrollView addSubview:horizontalContainerView];
+[horizontalContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.equalTo(horizontalScrollView);
+    make.height.equalTo(horizontalScrollView);
+}];
+// 过渡视图添加子视图
+UIView *previousView = nil;
+for (int i = 0; i < 10; i++)
+{
+    UILabel *label = [[UILabel alloc] init];
+    ......
 
-@property (copy, nonatomic) NSString *text; 
-@property (assign, nonatomic) CGFloat cellHeight; //缓存高度 
+    // 添加到父视图，并设置过渡视图中子视图的约束
+    [horizontalContainerView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.bottom.equalTo(horizontalContainerView);
+        make.width.equalTo(horizontalScrollView);
 
-@end
+        if (previousView)
+        {
+            make.left.mas_equalTo(previousView.mas_right);
+        }
+        else
+        {
+            make.left.mas_equalTo(0);
+        }
+    }];
 
-(CGFloat)tableView:(UITableView )tableView heightForRowAtIndexPath:(NSIndexPath )indexPath { 
-static CustomCell *cell; 
-//只初始化一次cell 
-static dispatch_once_t onceToken; 
-dispatch_once(&onceToken, ^{ 
-    cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CustomCell class])]; 
-    }); 
-    DataModel *model = self.dataArray[(NSUInteger) indexPath.row]; 
-    [cell makeupData:model];
-
-    if (model.cellHeight <= 0) 
-    { 
-        // 使用systemLayoutSizeFittingSize获取高度 
-        model.cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1; 
-    } 
-    return model.cellHeight; 
+    previousView = label;
 }
-~~~
-
- * 5、如何处理动画效果？
-因为布局约束就是要脱离frame这种表达方式的，可是动画是需要根据这个来执行，这里面就会有些矛盾，不过根据前面说到的布局约束的原理，在某个时刻约束也是会被还原成frame使视图显示，这个时刻可以通过layoutIfNeeded这个方法来进行控制。具体代码如下
-
-~~~ javascript
-[aniView mas_makeConstraints:^(MASConstraintMaker *make) { 
-    make.top.bottom.left.right.equalTo(self.view).offset(10); 
+// 设置过渡视图的右距（此设置将影响到scrollView的contentSize）
+[horizontalContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.right.mas_equalTo(previousView.mas_right);  
 }];
 ~~~ 
 
+ * 4、UITableView如何设置UITableViewCell的高度？
+在自自定义，或系统的UITableViewCell中，根据数据model显示，或隐藏UI子视图，以及UILabel的自适应显示（需要先设置多行自适应显示的属性）。同时，在代理方法中设置计算返回的高度。
 ~~~ javascript
+// UILabel多行自适应显示属性
+self.detailLabel.numberOfLines = 0;
+self.detailLabel.preferredMaxLayoutWidth = ([UIScreen mainScreen].bounds.size.width - 10.0 * 2);
+[self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+
+// UI子视图显示，或隐藏约束。如：
+NSString *name = model.imageName;
+if (name && 0 != name.length)
+{
+    UIImage *image = [UIImage imageNamed:name];
+    self.iconImageView.image = image;
+}
+[self.iconImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+    make.top.mas_equalTo(self.detailLabel.mas_bottom).offset(originXY);
+    make.size.mas_equalTo((name && 0 != name.length) ? CGSizeMake(sizeImage, sizeImage) : CGSizeZero);
+}];        
+[self layoutIfNeeded];
+
+// 计算高度
++ (CGFloat)heightTableCellWithModel:(Model *)model
+{
+    // 初始化高度
+    CGFloat height = ....;
+
+    // 计算高度
+    NSString *text = model.content;
+    CGFloat heightText = [text boundingRectWithSize:CGSizeMake(([UIScreen mainScreen].bounds.size.width - 2 * 10.0), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size.height;
+    height += heightText;
+
+    NSLog(@"heightTableCell = %f, heightText = %f", height, heightText);
+
+    return height;
+}
+
+// 代理方法中设置高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Model *model = self.array[indexPath.row];
+    CGFloat height = [UITableViewCell heightTableCellWithModel:model];
+
+    return height;
+}
+~~~ 
+
+ * 5、如何处理动画效果？
+实现动画效果，即修改更新UI的约束即可，可以使用mas_updateConstraints更新某个约束，也可以使用mas_remakeConstraints清除之前的约束，重新设置所有约束。但不管何种方式，都需要UI所有的父视图调用方法"- (void)layoutIfNeeded;"。
+~~~ javascript
+// 初始约束
+[aniView mas_makeConstraints:^(MASConstraintMaker *make) { 
+    make.top.equalTo(self.view).offset(10); 
+    make.left.equalTo(self.view).offset(10); 
+    make.right.equalTo(self.view).offset(-10); 
+    make.height.equalTo(@(80)); 
+}];
+// 更新某个约束
 [aniView mas_updateConstraints:^(MASConstraintMaker *make) { 
     make.top.equalTo(self.view).offset(30); 
 }];
-~~~ 
+// 或更新所有约束
+[aniView mas_remakeConstraints:^(MASConstraintMaker *make) { 
+    make.top.equalTo(self.view).offset(30); 
 
-~~~ javascript
+    make.left.equalTo(self.view).offset(10); 
+    make.right.equalTo(self.view).offset(-10); 
+    make.height.equalTo(@(80)); 
+}];
+// 动画
 [UIView animateWithDuration:3 animations:^{ 
     [self.view layoutIfNeeded]; 
 }];

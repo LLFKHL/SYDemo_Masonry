@@ -125,7 +125,7 @@ static CGFloat const sizeImage = 80.0;
 
 + (CGFloat)heightTableCellWithModel:(TableViewModel *)model
 {
-    // 初化高度
+    // 初始化高度
     CGFloat height = originXY + heightTitle;
     
     // 计算高度

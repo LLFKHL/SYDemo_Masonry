@@ -20,7 +20,6 @@
     }
     
     return _height;
-    
 }
 
 @end

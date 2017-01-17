@@ -93,7 +93,7 @@
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
         
-        // 设置为动态高度
+        // 设置为动态高度（可有可无）
         _mainTableView.estimatedRowHeight = UITableViewAutomaticDimension;
     }
     
