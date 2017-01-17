@@ -7,7 +7,20 @@
 //
 
 #import "TableViewModel.h"
+#import "TableViewCell.h"
 
 @implementation TableViewModel
+
+- (CGFloat)height
+{
+    if (!_height)
+    {
+        // 调用cell的方法计算出高度
+        _height = [TableViewCell heightTableCellWithModel:self];
+    }
+    
+    return _height;
+    
+}
 
 @end

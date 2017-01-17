@@ -1,10 +1,10 @@
 //
 //  Commons.h
-//  DemoMasonry
+//  zhangshaoyu
 //
 //  Created by zhangshaoyu on 16/3/26.
 //  Copyright © 2016年 zhangshaoyu. All rights reserved.
-//
+//  github：https://github.com/potato512/SYDemo_Masonry
 
 #ifndef Commons_h
 #define Commons_h
@@ -27,17 +27,4 @@ Masonry使用技巧:
 
 #endif /* Commons_h */
 
-
-/*
-
- https://segmentfault.com/q/1010000002773838
-
- 
- http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/
- 
-
- http://www.jianshu.com/p/24e4ff56bfea
-
- 
-*/
 
