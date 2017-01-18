@@ -1,6 +1,28 @@
 # SYDemo_Masonry
 使用masonry进行适配
 
+效果图
+ * UILabel标签（含多行自适应）
+![label_masonry.png](./images/label_masonry.png)
+
+ * UI视图（其他UI）
+![UI_masonry.gif](./images/UI_masonry.gif)
+
+ * UITabelView列表视图
+![tableView_masonry.gif](./images/tableView_masonry.gif)
+
+ * UICollectionView瀑布视图
+![collectionView_masonry.gif](./images/collectionView_masonry.gif)
+
+ * UIScrollView滚动视图
+![scrollview_masonry.gif](./images/scrollview_masonry.gif)
+
+ * Animation动画效果
+![animation_masonry.gif](./images/animation_masonry.gif)
+
+ * 登录视图示例
+![login_masonry.png](./images/login_masonry.png)
+
 #常用方法
  * 1 添加约束 mas_makeConstraints
  * 2 更新约束、也可以添加新约束 mas_updateConstraints
@@ -85,22 +107,22 @@
   * 左边界：make.left.equalTo(self.window).with.offset(15.0)
   * 下边界：make.bottom.equalTo(self.window).with.offset(-15.0)
   * 右边界：make.right.equalTo(self.window).with.offset(-15.0)
-或：
+  * 或：
   * 上边界：make.top.mas_equalTo(15.0)
   * 左边界：make.left.mas_equalTo(15.0)
   * 下边界：make.bottom.mas_equalTo(-15.0)
   * 右边界：make.right.mas_equalTo(-15.0)
-或：
+  * 或：
   * 上边界、左边界：make.top.left.mas_equalTo(15.0)
   * 下边界、右边界：make.bottom.right.mas_equalTo(-15.0)
-或：
+  * 或：
   * make.top.left.bottom.and.right.equalTo(self.window).with.insets(UIEdgeInsetsMake(15.0,15.0,15.0,15.0))
-或：
+  * 或：
   * make.edges.equalTo(self.window).with.insets(UIEdgeInsetsMake(15.0,15.0,15.0,15.0))
-与另一个视图的边界间距设置
-与另一个视图右部边界间距：
+  * 与另一个视图的边界间距设置
+  * 与另一个视图右部边界间距：
   * make.right.mas_equalTo(currentView.mas_left).offset(10.0);
-与另一个视图底部边界间距：
+  * 与另一个视图底部边界间距：
   * make.top.mas_equalTo(currentView.mas_bottom).offset(10.0);
 
  * 3、equalTo与mas_equalTo有什么区别？
@@ -127,7 +149,7 @@
   * （3）size：make.size. mas_equalTo(CGSizeMake(300.0,50.0));
   * 或：make.size.equalTo(view);
   * 或：make.size.mas_equalTo(CGSizeMake(150.0,50.0)).multipliedBy(0.5);
-
+  * 或：make.edges.equalTo(self.view);
 
 #疑问：
  * 1、UILable如何设置多行显示？
@@ -149,6 +171,7 @@ self.detailLabel.preferredMaxLayoutWidth = ([UIScreen mainScreen].bounds.size.wi
 
     // 无需设置高度约束
 }]; 
+
 // 情况2 多行自适应显示，计算高度，设置高度约束（不足：可能会造成文本显示不全）
 self.detailLabel.numberOfLines = 0; 
 CGFloat height = [self.detailLabel.text boundingRectWithSize:CGSizeMake(([UIScreen mainScreen].bounds.size.width - 2 * 10.0), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.detailLabel.font} context:nil].size.height;
@@ -165,15 +188,14 @@ CGFloat height = [self.detailLabel.text boundingRectWithSize:CGSizeMake(([UIScre
  * 2、UITextView如何设置自适应多行显示？
 UITextView实始化时，设置的约束只能显示一行，随着输入内容的不断增多，可以在代理方法中实现高度自适应，即重新更新高度约束。
 ~~~ javascript
-// 实始化约束
+// 初始化约束
 [textview mas_makeConstraints:^(MASConstraintMaker *make) {
     make.top.mas_equalTo(currentView.bottom).offset(10);
     make.left.equalTo(currentView);
     make.right.mas_equalTo(-10);
     make.height.mas_equalTo(40);
 }];
-~~~
-~~~ javascript
+
 // 代理方法中更新高度约束
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -201,8 +223,8 @@ UITextView实始化时，设置的约束只能显示一行，随着输入内容�
 
 
  * 3、UISCrollView如何设置contentSize？
-通过过渡视图设置。
-  * （1）containerView为crollView的过渡子视图（垂直设置示例说明）；
+  * 通过过渡视图设置。
+  * （1）containerView为crollView的过渡子视图（垂直设置原理说明）；
   * （2）containerView相对于crollView的约束为make.top.left.bottom.and.right.equalTo(crollView).with.insets(UIEdgeInsetsZero);
 make.width.equalTo(crollView);
   * （3）containerView的多个子视图label，且containerView的高度约束最终为最后一个子视图label：make.bottom.equalTo(label.mas_bottom);  
@@ -248,8 +270,7 @@ for (NSInteger index = 0; index < 10; index++)
 [verticalContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
     make.bottom.equalTo(lastView.mas_bottom);  
 }];
-~~~ 
-~~~ javascript
+ 
 // 水平方向
 UIScrollView *horizontalScrollView = [[UIScrollView alloc] init];
 ......
@@ -292,7 +313,7 @@ for (int i = 0; i < 10; i++)
 ~~~ 
 
  * 4、UITableView如何设置UITableViewCell的高度？
-在自自定义，或系统的UITableViewCell中，根据数据model显示，或隐藏UI子视图，以及UILabel的自适应显示（需要先设置多行自适应显示的属性）。同时，在代理方法中设置计算返回的高度。
+  * 在自自定义，或系统的UITableViewCell中，根据数据model显示，或隐藏UI子视图，以及UILabel的自适应显示（需要先设置多行自适应显示的属性）。同时，在代理方法中设置计算返回的高度。
 ~~~ javascript
 // UILabel多行自适应显示属性
 self.detailLabel.numberOfLines = 0;
@@ -339,7 +360,7 @@ if (name && 0 != name.length)
 ~~~ 
 
  * 5、如何处理动画效果？
-实现动画效果，即修改更新UI的约束即可，可以使用mas_updateConstraints更新某个约束，也可以使用mas_remakeConstraints清除之前的约束，重新设置所有约束。但不管何种方式，都需要UI所有的父视图调用方法"- (void)layoutIfNeeded;"。
+  * 实现动画效果，即修改更新UI的约束即可，可以使用mas_updateConstraints更新某个约束，也可以使用mas_remakeConstraints清除之前的约束，重新设置所有约束。但不管何种方式，都需要UI所有的父视图调用方法"- (void)layoutIfNeeded;"。
 ~~~ javascript
 // 初始约束
 [aniView mas_makeConstraints:^(MASConstraintMaker *make) { 
@@ -372,5 +393,8 @@ if (name && 0 != name.length)
 
  * 7、如何获取约束里设置的值，或是获取约束对象的frame
 
-
+ * 8、约束中edge、size设置的区别
+  * 设置某个子视图的大小与其父视图相同大小时，如frame中设置：label.frame = self.view.bounds;，可以使用size约束，也可以使用edges约束。
+  *（1）size约束（可能会出现约束异常）：make.size.equalTo(self.view);
+  *（2）edges约束（建议使用此方法）：make.edges.equalTo(self.view);
 

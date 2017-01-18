@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TableViewModel.h"
 
-static NSString *const identifierTableViewCell = @"TableViewCell";
-static CGFloat const heightTableViewCell = (10.0 + 30.0 + 10.0 + 30.0 + 10.0 + 80.0 + 10.0);
+static NSString *const identifierTableCell = @"TableViewCell";
+static CGFloat const heightTableCell = (10.0 + 30.0 + 10.0 + 30.0 + 10.0 + 80.0 + 10.0);
 
 @interface TableViewCell : UITableViewCell
 

@@ -8,6 +8,8 @@
 
 #import "TableViewViewController.h"
 #import "TableViewModel.h"
+#import "TableHeaderView.h"
+#import "TableFooterView.h"
 #import "TableViewCell.h"
 
 @interface TableViewViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -44,11 +46,63 @@
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+// 页眉数量
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.array.count;
+    NSInteger count = arc4random() % 10 + 1;
+    return count;
 }
 
+// 页眉高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return heightTableHeader;
+}
+
+// 页眉视图
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    TableHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifierTableHeader];
+    if (headerView == nil)
+    {
+        headerView = [[TableHeaderView alloc] initWithReuseIdentifier:identifierTableHeader];
+    }
+    
+    NSString *title = [NSString stringWithFormat:@"第 %@ 个页眉", @(section)];
+    headerView.titleLabel.text = title;
+    
+    return headerView;
+}
+
+// 页脚高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return heightTableFooter;
+}
+
+// 页脚视图
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    TableFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifierTableFooter];
+    if (footerView == nil)
+    {
+        footerView = [[TableFooterView alloc] initWithReuseIdentifier:identifierTableFooter];
+    }
+    
+    NSString *title = [NSString stringWithFormat:@"第 %@ 个页脚", @(section)];
+    footerView.titleLabel.text = title;
+    
+    return footerView;
+}
+
+// 单元格数量
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger count = arc4random() % self.array.count + 1;
+    return count;
+}
+
+// 单元格高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TableViewModel *model = self.array[indexPath.row];
@@ -58,12 +112,13 @@
     return height;
 }
 
+// 单元格视图
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifierTableViewCell];
+    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifierTableCell];
     if (cell == nil)
     {
-        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierTableViewCell];
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierTableCell];
     }
     
     TableViewModel *model = self.array[indexPath.row];
