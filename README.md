@@ -3,25 +3,25 @@
 
 效果图
  * UILabel标签（含多行自适应）
-![label_masonry.png](./images/label_masonry.png)
+ *![label_masonry.png](./images/label_masonry.png)
 
  * UI视图（其他UI）
-![UI_masonry.gif](./images/UI_masonry.gif)
+ *![UI_masonry.gif](./images/UI_masonry.gif)
 
  * UITabelView列表视图
-![tableView_masonry.gif](./images/tableView_masonry.gif)
+ *![tableView_masonry.gif](./images/tableView_masonry.gif)
 
  * UICollectionView瀑布视图
-![collectionView_masonry.gif](./images/collectionView_masonry.gif)
+ *![collectionView_masonry.gif](./images/collectionView_masonry.gif)
 
  * UIScrollView滚动视图
-![scrollview_masonry.gif](./images/scrollview_masonry.gif)
+ *![scrollview_masonry.gif](./images/scrollview_masonry.gif)
 
  * Animation动画效果
-![animation_masonry.gif](./images/animation_masonry.gif)
+ *![animation_masonry.gif](./images/animation_masonry.gif)
 
  * 登录视图示例
-![login_masonry.png](./images/login_masonry.png)
+ *![login_masonry.png](./images/login_masonry.png)
 
 #常用方法
  * 1 添加约束 mas_makeConstraints
