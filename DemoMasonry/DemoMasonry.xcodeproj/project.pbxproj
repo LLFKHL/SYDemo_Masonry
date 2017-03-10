@@ -34,6 +34,7 @@
 		A76B8DFD1CA6C4AB005E8780 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DFC1CA6C4AB005E8780 /* CollectionViewViewController.m */; };
 		A76B8E001CA6C4B7005E8780 /* TableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8DFF1CA6C4B7005E8780 /* TableViewViewController.m */; };
 		A76B8E031CA6C6EE005E8780 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76B8E021CA6C6EE005E8780 /* BaseViewController.m */; };
+		A76BCD961E72ADFA00B1EE64 /* bgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A76BCD951E72ADFA00B1EE64 /* bgImage@2x.png */; };
 		A77820F31C99500A00120B99 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77820D91C99500900120B99 /* Info.plist */; };
 		A77820F41C99500A00120B99 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A77820DB1C99500900120B99 /* MASCompositeConstraint.m */; };
 		A77820F51C99500A00120B99 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A77820DE1C99500900120B99 /* MASConstraint.m */; };
@@ -125,6 +126,7 @@
 		A76B8DFF1CA6C4B7005E8780 /* TableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewViewController.m; sourceTree = "<group>"; };
 		A76B8E011CA6C6EE005E8780 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		A76B8E021CA6C6EE005E8780 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		A76BCD951E72ADFA00B1EE64 /* bgImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgImage@2x.png"; sourceTree = "<group>"; };
 		A77820D91C99500900120B99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A77820DA1C99500900120B99 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		A77820DB1C99500900120B99 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				A74CB6841E24BBAB00B86CAB /* futou.png */,
 				A74CB6851E24BBAB00B86CAB /* miao.jpeg */,
 				A74CB6861E24BBAB00B86CAB /* tianshi.png */,
+				A76BCD951E72ADFA00B1EE64 /* bgImage@2x.png */,
 				A71C1A3A1CB7B1E60059171D /* scrollVC */,
 				A76B8E011CA6C6EE005E8780 /* BaseViewController.h */,
 				A76B8E021CA6C6EE005E8780 /* BaseViewController.m */,
@@ -481,6 +484,7 @@
 				A74CB6891E24BBAB00B86CAB /* tianshi.png in Resources */,
 				A742A9611C994AC900F6C61B /* Assets.xcassets in Resources */,
 				A742A95F1C994AC900F6C61B /* Main.storyboard in Resources */,
+				A76BCD961E72ADFA00B1EE64 /* bgImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

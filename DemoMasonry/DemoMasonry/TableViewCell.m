@@ -17,6 +17,7 @@ static CGFloat const sizeImage = 80.0;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *detailBgImageView;
 @property (nonatomic, strong) UILabel *detailLabel;
 @property (nonatomic, strong) UIImageView *iconImageView;
 
@@ -70,13 +71,30 @@ static CGFloat const sizeImage = 80.0;
         // 根据实际情况计算高度
     }];
     self.detailLabel.font = [UIFont systemFontOfSize:12.0];
-    self.detailLabel.backgroundColor = [UIColor redColor];
-    self.detailLabel.textColor = [UIColor yellowColor];
+//    self.detailLabel.backgroundColor = [UIColor redColor];
+    self.detailLabel.textColor = [UIColor blackColor];
     self.detailLabel.textAlignment = NSTextAlignmentLeft;
     // 多行设置
     self.detailLabel.numberOfLines = 0;
     self.detailLabel.preferredMaxLayoutWidth = (WidthScreen - originXY * 2);
     [self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    
+    
+    UIImage *bgImage = [UIImage imageNamed:@"bgImage"];
+    bgImage = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 0.0, 0.0) resizingMode:UIImageResizingModeStretch];
+    self.detailBgImageView = [[UIImageView alloc] initWithImage:bgImage];
+    [self.contentView addSubview:self.detailBgImageView];
+    [self.detailBgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(currentView.mas_bottom).offset(originXY);
+//        make.left.mas_equalTo(originXY);
+//        make.right.mas_equalTo(-originXY);
+        make.top.equalTo(self.detailLabel).offset(-5.0);
+        make.left.equalTo(self.detailLabel).offset(-5.0);
+        make.width.equalTo(self.detailLabel);
+        make.height.equalTo(self.detailLabel);
+    }];
+    [self.contentView sendSubviewToBack:self.detailBgImageView];
+    
     
     currentView = self.detailLabel;
     
